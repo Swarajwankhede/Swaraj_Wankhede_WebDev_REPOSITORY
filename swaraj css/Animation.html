@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border:1px solid blue;
+
+			animation-name: boxcolor;
+			animation-duration: 4s;
+			animation-iteration-count: 4;
+
+		}
+		@keyframes boxcolor{
+			25%{
+				background-color:red;
+			}
+			50%{
+				background-color: black;
+			}
+
+		}
+		#countryname{
+			color:orange;
+		}
+		#countryname:after{
+			color: brown;
+			content: "";
+			animation-name: cnameanime;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+		}
+		@keyframes cnameanime{
+			25%{
+				content:"INDIA";
+			}
+			50%{
+				content:"America";
+			}
+			75%{
+				content:"China";
+			}
+			100%{
+				content:"Egypt";
+			}
+		}
+	</style>
+</head>
+<body>
+<div></div>
+<h1>Visit <span id="countryname"></span></h1>
+</body>
+</html>

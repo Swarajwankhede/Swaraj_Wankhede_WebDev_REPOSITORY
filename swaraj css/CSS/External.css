@@ -1,0 +1,22 @@
+h1{
+	color: darkred;
+}
+h1:hover{
+	color:blue;
+	font-style:italic;
+}
+h2{
+	background-color: grey;
+	text-decoration: underline;
+}
+p{
+	color: crimson;
+	word-spacing: 5px;
+	text-indent: 15px;
+}
+h3{
+	color: darkblue;
+	text-shadow: 4px 4px 3px red;
+	font-size: 27px;
+	text-align: center;
+}
