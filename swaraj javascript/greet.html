@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1 id="abc"></h1>
+	<button id="btn">Click Here</button>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready( function(){
+			$("#btn").click(function(){
+				alert("good morningggg");
+			})
+			$("#btn").contextmenu(function(){
+				alert("Good Night")
+			})
+		})
+	</script>
+</body>
+</html>

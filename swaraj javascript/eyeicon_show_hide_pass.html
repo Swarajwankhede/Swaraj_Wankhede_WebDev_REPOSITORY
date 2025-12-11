@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Show/Hide Password</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        label{
+            margin: 50px 0px 50px 50px;
+        }
+        i{
+            position: relative;
+            right: 30px;
+            cursor: pointer;
+        }
+        #pass{
+            height: fit-content;
+            border-radius: 5px;
+            background-color: mintcream;
+        }
+                /* Hide the default browser eye icon inside password fields */
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <label>Password</label> <input type="password" id="pass" >
+        <!-- <button id="btn">show</button> -->
+        <i class="bi bi-eye" id="eyeicon"></i>
+        <!-- <i class="bi bi-eye-slash " id="eyeicon"></i> -->
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#eyeicon").click(function(e){
+                 e.preventDefault();
+                let valuetype=$("#pass").attr("type");
+                if(valuetype==="password"){
+                    $("#pass").attr("type","text")
+                    // $("#btn").text("hide")
+                    // $("#eyeicon").attr("class","bi bi-eye-slash")
+                    $("#eyeicon").removeClass("bi bi-eye")
+                    $("#eyeicon").addClass("bi bi-eye-slash")
+                    
+                }
+                else{
+                    $("#pass").attr("type","password")
+                     // $("#btn").text("show")
+                    $("#eyeicon").removeClass("bi bi-eye-slash")
+                    $("#eyeicon").addClass("bi bi-eye")
+                    
+                }
+
+            })
+            
+
+        })
+            
+    </script>
+</body>
+</html>

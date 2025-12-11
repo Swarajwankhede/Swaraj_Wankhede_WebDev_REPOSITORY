@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p id="capt"></p>
+	<input type="text" id="txt" placeholder="Enter Captcha">
+	<button id="refresh">new</button>
+	<button id="verify">Verify</button>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script>
+			
+			let currentcaptcha='';
+			function generatecaptcha(length = 6){
+				const character="ABCDEFGHIJKLMNOPQRSTWYZabcefghijklmnopqrstuvwxyz1234567890!@#$%^&*";
+				const charlen=character.length;
+				let captcha='';
+				for(let i=0;i<length;i++){
+					captcha +=character.charAt(Math.floor(Math.random()*charlen));
+				}
+				currentcaptcha=captcha;// $("#capt").text(captcha);
+				$("#capt").text(captcha);
+				return captcha;
+			}
+		$(document).ready(function(){
+			generatecaptcha(6);
+			$("#refresh").click(function(){
+				generatecaptcha(6);
+			})
+			$("#verify").click(function(){
+				let cap=currentcaptcha;
+				let tet=$("#txt").val();
+				if(cap!==tet){
+					alert("unMatched");
+				}
+				else{
+					alert("matched");
+				}
+			})
+		});
+	</script>
+</body>
+</html>

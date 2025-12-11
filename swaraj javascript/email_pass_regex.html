@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		Email - <input type="email" id="email" autocomplete="off">
+		<p id="emailtxt"></p>
+		Password-<input type="password" id="pass">	
+		<p id="pwdtxt"></p>
+		<!-- <button id="btn">Submit</button>	 -->
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+           // email validation
+           $("#email").keyup(function(){
+            	let edata=$("#email").val()//console.log(pwddata)
+            	let ereg=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+;
+
+            	if(ereg.test(edata)){
+            		$("#emailtxt").html("<font color='green'> Valid</font>")
+            	}
+            	else{
+            		$("#emailtxt").html("<font color='red'>Invalid</font>")
+            	}
+            })
+
+           // password validation
+            $("#pass").keyup(function(){
+            	let pwddata=$("#pass").val()//console.log(pwddata)
+            	let pwdreg=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
+
+            	if(pwdreg.test(pwddata)){
+            		$("#pwdtxt").html("<font color='green'> Validated</font>")
+            	}
+            	else{
+            		$("#pwdtxt").html("<font color='red'>not Validated</font>")
+            	}
+            })
+
+        })
+            
+    </script>
+</body>
+</html>
