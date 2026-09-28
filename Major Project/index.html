@@ -1,0 +1,235 @@
+<!-- <?php
+session_start();
+if (isset($_SESSION['msg'])) {
+    echo "<script>alert('" . $_SESSION['msg'] . "');</script>";
+    unset($_SESSION['msg']);
+}
+?>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>College Complaint/Feedback Portal</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand">Complaint System</span>
+    
+        <div class="ml-auto">
+            <button class="btn btn-outline-light btn-sm mr-2" data-toggle="modal" data-target="#loginModal">
+                Student Login
+            </button>
+                <button class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#adminModal">
+                Admin Login
+            </button>
+        </div>
+    </nav>
+    
+                <!-- intro box -->
+    <div class="intro-box text-center mt-0">
+        <h1>College Complaint / Feedback Portal</h1>
+        <p class="mt-3">
+            A simple and effective way for students to register complaints
+            and track their status online.
+        </p>
+    
+        <button class="btn btn-light btn-lg mt-3" data-toggle="modal" data-target="#registermodal">
+            Student Registration
+        </button>
+    </div>
+    
+    <!-- feature cards -->
+    <div class="container mt-5">
+        <h3 class="text-center mb-4">System Features</h3>
+    
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5>Easy Complaint Submission</h5>
+                        <p>Students can submit complaints anytime.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5>Track Complaint Status</h5>
+                        <p>View status and admin responses.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5>Admin Control Panel</h5>
+                        <p>Manage users and complaints.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- student registration modal-->
+    <div class="modal fade" id="registermodal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <div class="card shadow m-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Student Registration</h4>
+                    </div>
+    
+                    <div class="card-body">
+                        <form method="post" action="student/student_register.php">
+    
+                            <div class="form-group">
+                                Student ID
+                                <input type="text" name="studentid" class="form-control" placeholder="Enter id" required>
+                            </div>
+    
+                            <div class="form-group">
+                                Student Name
+                                <input type="text" name="name" class="form-control"placeholder="Enter name"   required>
+                            </div>
+    
+                            <div class="form-group">
+                                Email
+                                <input type="email" name="email" id="email" class="form-control"placeholder="Enter email"  required>
+                            </div>
+                                <p id="emailtxt"></p>
+    
+                            <div class="form-group">
+                                Password
+                                <input type="password" name="password" id="pwd" class="form-control" placeholder="Enter password"  required>
+                            </div>
+                                <p id="pwdtxt"></p>
+    
+                            <button name="registerbtn" class="btn btn-success btn-block mt-3 ">
+                                Register
+                            </button>
+    
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+                    <!--student login modal -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <div class="card shadow m-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Student Login</h4>
+                    </div>
+    
+                    <div class="card-body">
+                        <form method="post" action="student/student_login.php">
+    
+                            <div class="form-group">
+                                Student ID
+                                <input type="text" name="studentid" class="form-control" placeholder="Enter id" required>
+                            </div>
+    
+                            <div class="form-group">
+                                Password
+                                <input type="password" name="password" placeholder="Enter password" class="form-control" required>
+                            </div>
+    
+                            <button name="studentloginbtn" class="btn btn-primary btn-block mt-3">
+                                Login
+                            </button>
+    
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+                     <!-- admin login modal -->
+    <div class="modal fade" id="adminModal" >
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+    
+                <div class="card shadow m-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>Admin Login</h4>
+                    </div>
+    
+                    <div class="card-body">
+                        <form method="post" action="admin/admin_login.php">
+    
+                            <div class="form-group">
+                                EMAIL
+                                <input type="email" name="email" class="form-control" placeholder="Enter email"  required>
+                            </div>
+    
+                            <div class="form-group">
+                                Password
+                                <input type="password" name="password" class="form-control" placeholder="Enter password"  required>
+                            </div>
+    
+                            <button name="adminloginbtn" class="btn btn-primary btn-block mt-3">
+                                Login
+                            </button>
+    
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="eyeicon.js"></script>
+<script src="cap.js"></script>
+<script>
+    $(document).ready(function(){
+        // Email validation
+        $("#email").keyup(function () {
+            let edata = $(this).val();
+            let ereg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+            if (ereg.test(edata)) {
+                $("#emailtxt").html("<span class='text-success'>Valid</span>");
+            } else {
+                $("#emailtxt").html("<span class='text-danger'>Invalid</span>");
+            }
+        });
+    
+        // Password validation
+        $("#pwd").keyup(function () {
+            let pwddata = $(this).val();
+            let pwdreg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
+    
+            if (pwdreg.test(pwddata)) {
+                $("#pwdtxt").html("<span class='text-success'>Valid</span>");
+            } else {
+                $("#pwdtxt").html("<span class='text-danger'>Invalid</span>");
+            }
+        });
+    });
+</script>
+    
+    <!-- FOOTER -->
+    <footer class="text-center mt-5 mb-3">
+        <p class="mb-0">
+            © 2025 Online Complaint Management System | Developed by Swaraj Raju Wankhede
+        </p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"     crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
